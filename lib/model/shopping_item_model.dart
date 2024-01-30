@@ -1,3 +1,5 @@
+import 'package:flutter/cupertino.dart';
+
 class ShoppingItemModel {
   final String name;
   final int quantity;
@@ -10,6 +12,19 @@ class ShoppingItemModel {
     required this.hasBought,
     required this.isSpicy,
   });
+
+  ShoppingItemModel copyWith({
+    String? name,
+    int? quantity,
+    bool? hasBought,
+    bool? isSpicy,
+  }) {
+    return ShoppingItemModel(
+        name: name ?? this.name,
+        quantity: quantity ?? this.quantity,
+        hasBought: hasBought ?? this.hasBought,
+        isSpicy: isSpicy ?? this.isSpicy);
+  }
 
   void toggleHasBought() {
     hasBought = !hasBought;
